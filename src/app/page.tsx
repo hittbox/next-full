@@ -11,11 +11,12 @@ export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [error, setError] = useState<string | null>(null);
 
+  // 데이터 불러오기
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getPosts();
-        setPosts(data);
+        setPosts(data); // 상태 업데이트
       } catch (e) {
         setError("게시물을 불러오는 데 실패했습니다.");
       }
@@ -24,6 +25,7 @@ export default function Home() {
     fetchData();
   }, []);
 
+  // 예외 처리
   if (error) {
     return <div>{error}</div>
   }
@@ -32,6 +34,7 @@ export default function Home() {
     <div className="flex flex-col w-full h-screen justify-start items-center">
       <h1 className="text-3xl font-semibold mt-10">Posts</h1>
       <div className="flex flex-col gap-3 px-5 mt-10">
+        {/* 데이터 활용 */}
         {posts.map((post) => (
           <div key={post.id} className="border rounded-md p-3">
             <h2 className="text-xl font-semibold">{post.title}</h2>
