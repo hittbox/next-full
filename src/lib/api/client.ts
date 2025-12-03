@@ -5,6 +5,6 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: "https://jsonplaceholder.typicode.com",
+    baseURL: "https://lxpjwcrfuqkthbnrljqy.supabase.co/functions/v1/api",
     timeout: 5000,
 })

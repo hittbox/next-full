@@ -3,13 +3,7 @@
 */
 
 import { instance } from "./client";
-
-export type Post = {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
-}
+import { type Post } from "./types"
 
 export const getPosts = async (): Promise<Post[]> => {
     const res = await instance.get<Post[]>("/posts");
